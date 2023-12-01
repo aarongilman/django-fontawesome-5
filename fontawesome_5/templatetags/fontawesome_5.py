@@ -6,7 +6,7 @@ from django.templatetags.static import static
 from django.utils.html import conditional_escape, format_html, mark_safe
 
 from .. import Icon
-from ..app_settings import get_css
+from ..app_settings import get_css, get_prefix
 
 css = get_css()
 register = template.Library()
@@ -47,7 +47,7 @@ def icon_as_html(icon: str, size: Optional[str] = None, title: Optional[str] = N
     # Parse the icon
     split = icon.split(",")
     if len(split) == 1:
-        _prefix = settings.FONTAWESOME_5_PREFIX
+        _prefix = get_prefix()
         _icon_name = split[0]
     else:
         _prefix = split[0]
