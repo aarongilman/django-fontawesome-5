@@ -20,24 +20,17 @@ dependencies = [
 ]
 dynamic = ["readme"]
 
-[tool.setuptools.dynamic]
-readme = { file = "README.md", content-type = "text/markdown; charset=UTF-8" }
-
 [project.urls]
 Homepage = "https://github.com/frague59/django-fontawesome-5"
+
+[tool.setuptools]
+packages = ["fontawesome_5"]
+
+[tool.setuptools.dynamic]
+readme = { file = "README.md", content-type = "text/markdown; charset=UTF-8" }
 
 [tool.setuptools.exclude-package-data]
 "*" = ["node_modules*"]
 
 [tool.setuptools.package-data]
 where = ["*"]
-"*" = [
-    "*.txt",
-    "*.md",
-    "*.rst",
-    "*.json",
-    "*.html",
-    "*.js",
-    "*.css"
-]
-
