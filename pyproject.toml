@@ -30,6 +30,7 @@ Homepage = "https://github.com/frague59/django-fontawesome-5"
 "*" = ["node_modules*"]
 
 [tool.setuptools.package-data]
+where = ["*"]
 "*" = [
     "*.txt",
     "*.md",
