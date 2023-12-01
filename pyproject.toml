@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-fontawesome-5"
-description = "FontAwesome integration form django projects"
+description = "A utility for using icons in models, forms, and templates."
 keywords = ["Django", "FontAwesome 5"]
 version = "1.1.0"
 license = {text = "BSD"}
@@ -26,10 +26,17 @@ readme = { file = "README.md", content-type = "text/markdown; charset=UTF-8" }
 [project.urls]
 Homepage = "https://github.com/frague59/django-fontawesome-5"
 
-[tool.setuptools.packages.find]
-where = ["."]
-namespaces = false
+[tool.setuptools.exclude-package-data]
+"*" = ["node_modules*"]
 
 [tool.setuptools.package-data]
-"*" = ["*.txt", "*.md", "*.rst"]
+"*" = [
+    "*.txt",
+    "*.md",
+    "*.rst",
+    "*.json",
+    "*.html",
+    "*.js",
+    "*.css"
+]
 
