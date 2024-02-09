@@ -43,7 +43,15 @@ def icon_as_html(icon: str, size: Optional[str] = None, title: Optional[str] = N
     :param title: Title of the icon
     :return: Render-able dict
     """
-    output = {"debug": settings.DEBUG}
+    output = {
+        "debug": settings.DEBUG,
+        "style_prefix": get_prefix(),
+        "size": "fa-fw",
+        "title": "Icon",
+        "icon": "file",
+    }
+    if not icon:
+        return output
     # Parse the icon
     split = icon.split(",")
     if len(split) == 1:
@@ -52,6 +60,7 @@ def icon_as_html(icon: str, size: Optional[str] = None, title: Optional[str] = N
     else:
         _prefix = split[0]
         _icon_name = split[1]
+
     output.update(
         {
             "title": title,
