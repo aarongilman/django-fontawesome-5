@@ -6,7 +6,6 @@ from .app_settings import get_prefix
 from .forms import IconFormField
 from .shims import shims
 
-
 prefix = get_prefix()
 
 
@@ -21,11 +20,10 @@ class IconField(models.Field):
     def get_internal_type(self):
         return "CharField"
 
-    @staticmethod
-    def from_db_value(value, expression, connection, *args, **kwargs):
+    def from_db_value(self, value, expression, connection, context):
         if value is None:
             return value
-        if not "," in value:
+        if "," not in value:
             value = shims.get(value, None)
         if value is None:
             return value
@@ -37,7 +35,7 @@ class IconField(models.Field):
             return value
         if value is None:
             return value
-        if not "," in value:
+        if "," not in value:
             value = shims.get(value, None)
         if not value or value == "None":
             return None

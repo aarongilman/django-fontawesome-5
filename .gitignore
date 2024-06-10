@@ -142,8 +142,4 @@ node_modules
 .gulp-scss-cache
 .sass-cache
 .vscode
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/django-fontawesome-5.iml
-/.idea/modules.xml
-/.idea/workspace.xml
+.idea

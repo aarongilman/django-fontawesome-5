@@ -1,39 +1,42 @@
 [build-system]
-requires = ["setuptools>=61.2", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "django-fontawesome-5"
 description = "A utility for using icons in models, forms, and templates."
-keywords = ["Django", "FontAwesome 5"]
-version = "1.1.0"
-license = {text = "BSD"}
+dynamic = ["version"]
+requires-python = ">=3.8"
+license-file = { path = "LICENSE" }
+readme = { file = "README.md", content-type = "text/markdown" }
 authors = [
-    { name = "Benjamin Frost", email = "info@btfrost.com" }
+    { name = 'Benjamin Frost', email = 'info@btfrost.com' },
 ]
 maintainers = [
     { name = "François GUÉRIN", email = "frague59@gmail.com" }
 ]
-requires-python = ">=3.9"
-dependencies = [
-    "Django>=2.1"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 ]
-dynamic = ["readme"]
 
-[project.urls]
-Homepage = "https://github.com/frague59/django-fontawesome-5"
+[tool.hatch.version]
+path = "fontawesome_5/__about__.py"
 
-[tool.setuptools]
-packages = [
-    "fontawesome_5"
-]
-
-[tool.setuptools.dynamic]
-readme = { file = "README.md", content-type = "text/markdown; charset=UTF-8" }
-
-[tool.setuptools.package-data]
-where = ["*"]
-include = ["fontawesome_5/static*"]
-
-[tool.setuptools.exclude-package-data]
-"*" = ["node_modules*"]
+[tool.hatch.build.targets.wheel]
+packages = ["fontawesome_5"]
